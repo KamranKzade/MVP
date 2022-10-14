@@ -19,12 +19,12 @@ namespace MVP.Views
         }
 
 
-        public string? FirstName
+        public string FirstName
         {
             get => txt_first.Text;
             set => txt_first.Text = value;
         }
-        public string? LastName
+        public string LastName
         {
             get => txt_last.Text;
             set => txt_last.Text = value;
@@ -40,9 +40,6 @@ namespace MVP.Views
             set => monthCalendar1.SelectionStart = value;
         }
 
-       
-
-
 
         public event EventHandler? SaveEvent;
         public event EventHandler? CancelEvent;
@@ -52,6 +49,5 @@ namespace MVP.Views
 
         private void btn_cancel_Click(object sender, EventArgs e)
         => CancelEvent?.Invoke(sender, e);
-
     }
 }

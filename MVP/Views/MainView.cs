@@ -14,10 +14,10 @@ public partial class MainView : Form, IMainView
 
 
     //// Event
-    public event EventHandler SearchEvent;
-    public event EventHandler AddEvent;
-    public event EventHandler UpdateEvent;
-    public event EventHandler DeleteEvent;
+    public event EventHandler? SearchEvent;
+    public event EventHandler? AddEvent;
+    public event EventHandler? UpdateEvent;
+    public event EventHandler? DeleteEvent;
 
 
     private void btn_search_Click(object sender, EventArgs e)
@@ -32,7 +32,6 @@ public partial class MainView : Form, IMainView
 
     private void btn_update_Click(object sender, EventArgs e)
     => UpdateEvent?.Invoke(sender, e);
-
 
 
 }

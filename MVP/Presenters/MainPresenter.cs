@@ -7,6 +7,7 @@ public class MainPresenter
 {
     private readonly IMainView _mainView = null!;
     private readonly IAddUpdateView _addUpdateView = null!;
+
     private readonly BindingSource _bindingSource;
     private readonly List<Student> _students;
 
@@ -57,7 +58,7 @@ public class MainPresenter
 
     private void _mainView_DeleteEvent(object? sender, EventArgs e)
     {
-        var deletedItem = _bindingSource.Current;
+        var deletedItem = _bindingSource.Current as Student;
 
         if (deletedItem is null)
         {
@@ -66,26 +67,29 @@ public class MainPresenter
         }
 
         _bindingSource.Remove(deletedItem);
-        MessageBox.Show("Succesfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        MessageBox.Show("Succesfully Deleted", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 
     private void _mainView_AddEvent(object? sender, EventArgs e)
     {
-        var result = _addUpdateView.ShowDialog();
-
-        if (result == DialogResult.Cancel)
+        if (_addUpdateView.ShowDialog() == DialogResult.Cancel)
             return;
 
         var student = new Student()
         {
             FirstName = _addUpdateView.FirstName,
             LastName = _addUpdateView.LastName,
-            DateOfBirth = DateTime.Parse(_addUpdateView.DateOfBirth.ToShortDateString()),
+            DateOfBirth = _addUpdateView.DateOfBirth,
             Score = (float)_addUpdateView.Score,
         };
 
         _bindingSource.Add(student);
-        MessageBox.Show("Successfully", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        MessageBox.Show("Successfully Added", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        
+        _addUpdateView.LastName = string.Empty;
+        _addUpdateView.FirstName = string.Empty;
+        _addUpdateView.Score = 0;
+       _addUpdateView.DateOfBirth =  DateTime.Now;
     }
 
 

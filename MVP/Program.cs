@@ -1,5 +1,6 @@
 using MVP.Presenters;
 using MVP.Views;
+using Source.Presenters;
 
 namespace MVP;
 
@@ -15,8 +16,10 @@ internal static class Program
         // see https://aka.ms/applicationconfiguration.
         ApplicationConfiguration.Initialize();
       
-        IMainView mainView = new MainView();
         IAddUpdateView addView = new AddUpdateView();
+        new AddUpdatePresenter(addView);
+
+        IMainView mainView = new MainView();
         new MainPresenter(mainView, addView);
 
         Application.Run((Form)mainView);

@@ -1,4 +1,5 @@
 ﻿using MVP.Views;
+using System.Text;
 
 namespace Source.Presenters;
 
@@ -18,19 +19,28 @@ public class AddUpdatePresenter
 
     private void _addView_SaveEvent(object? sender, EventArgs e)
     {
-        if (_addUpdateView.FirstName.Length > 3)
+        StringBuilder sb = new();
+
+        if (_addUpdateView.FirstName.Length < 3)
+            sb.Append($"{nameof(_addUpdateView.FirstName)} is Wrong\n");
+
+        if (_addUpdateView.LastName.Length < 3)
+            sb.Append($"{nameof(_addUpdateView.LastName)} is Wrong\n");
+
+        if (DateTime.Now.Year - _addUpdateView.DateOfBirth.Year < 18)
+            sb.Append($"{nameof(_addUpdateView.DateOfBirth)} is Wrong\n");
+
+        if (sb.Length > 0)
         {
-            ((Form)_addUpdateView).DialogResult = DialogResult.OK;
+            MessageBox.Show(sb.ToString(), "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return;
         }
 
-
-        MessageBox.Show("Error Messages", "Errors", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+        _addUpdateView.DialogResult = DialogResult.OK;
     }
 
 
     private void _addView_CancelEvent(object? sender, EventArgs e)
-        => ((Form)_addUpdateView).DialogResult = DialogResult.Cancel;
+        => _addUpdateView.DialogResult = DialogResult.Cancel;
 
 }
