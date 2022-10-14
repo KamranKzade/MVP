@@ -16,7 +16,7 @@ internal static class Program
         ApplicationConfiguration.Initialize();
       
         IMainView mainView = new MainView();
-        IAddView addView = new AddView();
+        IAddUpdateView addView = new AddUpdateView();
         new MainPresenter(mainView, addView);
 
         Application.Run((Form)mainView);

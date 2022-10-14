@@ -13,6 +13,7 @@ public partial class MainView : Form, IMainView
     => listBox_students.DataSource = source;
 
 
+    //// Event
     public event EventHandler SearchEvent;
     public event EventHandler AddEvent;
     public event EventHandler UpdateEvent;
@@ -28,4 +29,10 @@ public partial class MainView : Form, IMainView
 
     private void btn_add_Click(object sender, EventArgs e)
    => AddEvent?.Invoke(sender, e);
+
+    private void btn_update_Click(object sender, EventArgs e)
+    => UpdateEvent?.Invoke(sender, e);
+
+
+
 }

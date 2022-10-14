@@ -1,6 +1,6 @@
 ﻿namespace MVP.Views
 {
-    partial class AddView
+    partial class AddUpdateView
     {
         /// <summary>
         /// Required designer variable.
@@ -42,20 +42,22 @@
             // 
             this.txt_first.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_first.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_first.Location = new System.Drawing.Point(19, 91);
+            this.txt_first.Location = new System.Drawing.Point(22, 121);
+            this.txt_first.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_first.Name = "txt_first";
             this.txt_first.PlaceholderText = "FirstName";
-            this.txt_first.Size = new System.Drawing.Size(175, 29);
+            this.txt_first.Size = new System.Drawing.Size(199, 34);
             this.txt_first.TabIndex = 0;
             // 
             // txt_last
             // 
             this.txt_last.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_last.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_last.Location = new System.Drawing.Point(19, 161);
+            this.txt_last.Location = new System.Drawing.Point(22, 215);
+            this.txt_last.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_last.Name = "txt_last";
             this.txt_last.PlaceholderText = "LastName";
-            this.txt_last.Size = new System.Drawing.Size(175, 29);
+            this.txt_last.Size = new System.Drawing.Size(199, 34);
             this.txt_last.TabIndex = 0;
             // 
             // numeric_score
@@ -63,19 +65,26 @@
             this.numeric_score.Cursor = System.Windows.Forms.Cursors.Hand;
             this.numeric_score.DecimalPlaces = 1;
             this.numeric_score.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.numeric_score.Location = new System.Drawing.Point(19, 224);
+            this.numeric_score.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.numeric_score.Location = new System.Drawing.Point(22, 299);
+            this.numeric_score.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.numeric_score.Maximum = new decimal(new int[] {
             12,
             0,
             0,
             0});
             this.numeric_score.Name = "numeric_score";
-            this.numeric_score.Size = new System.Drawing.Size(175, 29);
+            this.numeric_score.Size = new System.Drawing.Size(200, 34);
             this.numeric_score.TabIndex = 1;
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(226, 91);
+            this.monthCalendar1.Location = new System.Drawing.Point(258, 121);
+            this.monthCalendar1.Margin = new System.Windows.Forms.Padding(10, 12, 10, 12);
             this.monthCalendar1.MaxSelectionCount = 1;
             this.monthCalendar1.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.monthCalendar1.Name = "monthCalendar1";
@@ -87,9 +96,10 @@
             this.btn_save.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btn_save.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_save.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_save.Location = new System.Drawing.Point(19, 281);
+            this.btn_save.Location = new System.Drawing.Point(22, 375);
+            this.btn_save.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(175, 42);
+            this.btn_save.Size = new System.Drawing.Size(200, 56);
             this.btn_save.TabIndex = 3;
             this.btn_save.Text = "Save";
             this.btn_save.UseVisualStyleBackColor = false;
@@ -101,9 +111,10 @@
             this.btn_cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btn_cancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_cancel.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_cancel.Location = new System.Drawing.Point(226, 281);
+            this.btn_cancel.Location = new System.Drawing.Point(258, 375);
+            this.btn_cancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(206, 42);
+            this.btn_cancel.Size = new System.Drawing.Size(235, 56);
             this.btn_cancel.TabIndex = 3;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = false;
@@ -113,18 +124,18 @@
             // 
             this.lbl_date.AutoSize = true;
             this.lbl_date.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_date.Location = new System.Drawing.Point(226, 37);
+            this.lbl_date.Location = new System.Drawing.Point(258, 49);
             this.lbl_date.Name = "lbl_date";
-            this.lbl_date.Size = new System.Drawing.Size(206, 36);
+            this.lbl_date.Size = new System.Drawing.Size(255, 45);
             this.lbl_date.TabIndex = 4;
             this.lbl_date.Text = "Date Of Birth";
             // 
             // AddView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(466, 353);
+            this.ClientSize = new System.Drawing.Size(533, 471);
             this.Controls.Add(this.lbl_date);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_save);
@@ -133,6 +144,7 @@
             this.Controls.Add(this.txt_last);
             this.Controls.Add(this.txt_first);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "AddView";
             this.Text = "Add Form";
             ((System.ComponentModel.ISupportInitialize)(this.numeric_score)).EndInit();

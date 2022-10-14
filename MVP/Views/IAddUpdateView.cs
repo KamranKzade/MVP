@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace MVP.Views;
 
-public interface IAddView
+public interface IAddUpdateView
 {
-    string? FirstName { get; }
-    string? LastName { get; }
-    decimal Score { get; }
-    DateTime DateOfBirth { get; }
+    string? FirstName { get; set; }
+    string? LastName { get; set; }
+    decimal Score { get; set; }
+    DateTime DateOfBirth { get; set; }
 
 
     event EventHandler SaveEvent;
     event EventHandler CancelEvent;
-
+    
+    DialogResult ShowDialog();
 }
