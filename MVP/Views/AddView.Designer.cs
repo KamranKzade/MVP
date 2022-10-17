@@ -1,6 +1,6 @@
 ﻿namespace MVP.Views
 {
-    partial class AddUpdateView
+    partial class AddView
     {
         /// <summary>
         /// Required designer variable.

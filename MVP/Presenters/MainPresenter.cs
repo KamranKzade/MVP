@@ -6,15 +6,18 @@ namespace MVP.Presenters;
 public class MainPresenter
 {
     private readonly IMainView _mainView = null!;
-    private readonly IAddUpdateView _addUpdateView = null!;
+    private readonly IAddView _addView = null!;
+    private readonly IUpdateView _updateView = null!;
+
 
     private readonly BindingSource _bindingSource;
     private readonly List<Student> _students;
 
-    public MainPresenter(IMainView mainView, IAddUpdateView addUpdateView)
+    public MainPresenter(IMainView mainView, IAddView addeView, IUpdateView updateView)
     {
         _mainView = mainView;
-        _addUpdateView = addUpdateView;
+        _addView = addeView;
+        _updateView = updateView;
 
 
         _students = new List<Student>()
@@ -72,24 +75,24 @@ public class MainPresenter
 
     private void _mainView_AddEvent(object? sender, EventArgs e)
     {
-        if (_addUpdateView.ShowDialog() == DialogResult.Cancel)
+        if (_addView.ShowDialog() == DialogResult.Cancel)
             return;
 
         var student = new Student()
         {
-            FirstName = _addUpdateView.FirstName,
-            LastName = _addUpdateView.LastName,
-            DateOfBirth = _addUpdateView.DateOfBirth,
-            Score = (float)_addUpdateView.Score,
+            FirstName = _addView.FirstName,
+            LastName = _addView.LastName,
+            DateOfBirth = _addView.DateOfBirth,
+            Score = (float)_addView.Score,
         };
 
         _bindingSource.Add(student);
         MessageBox.Show("Successfully Added", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
         
-        _addUpdateView.LastName = string.Empty;
-        _addUpdateView.FirstName = string.Empty;
-        _addUpdateView.Score = 0;
-       _addUpdateView.DateOfBirth =  DateTime.Now;
+        _addView.LastName = string.Empty;
+        _addView.FirstName = string.Empty;
+        _addView.Score = 0;
+       _addView.DateOfBirth =  DateTime.Now;
     }
 
 
@@ -103,26 +106,24 @@ public class MainPresenter
             return;
         }
 
-        _addUpdateView.FirstName = student.FirstName;
-        _addUpdateView.LastName = student.LastName;
-        _addUpdateView.Score = (decimal)student.Score;
-        _addUpdateView.DateOfBirth = student.DateOfBirth;
+        _updateView.FirstName = student.FirstName;
+        _updateView.LastName = student.LastName;
+        _updateView.Score = (decimal)student.Score;
+        _updateView.DateOfBirth = student.DateOfBirth;
 
 
-        if (_addUpdateView.ShowDialog() == DialogResult.Cancel)
+        if (_updateView.ShowDialog() == DialogResult.Cancel)
             return;
 
 
-        student.FirstName = _addUpdateView.FirstName;
-        student.LastName = _addUpdateView.LastName;
-        student.Score = (float)_addUpdateView.Score;
-        student.DateOfBirth = _addUpdateView.DateOfBirth;
+        student.FirstName = _updateView.FirstName;
+        student.LastName = _updateView.LastName;
+        student.Score = (float)_updateView.Score;
+        student.DateOfBirth = _updateView.DateOfBirth;
 
 
 
         _bindingSource.ResetCurrentItem();
         MessageBox.Show("Succesfully Update", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
-
-
 }

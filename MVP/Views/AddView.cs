@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace MVP.Views
 {
-    public partial class AddUpdateView : Form, IAddUpdateView
+    public partial class AddView : Form, IAddView
     {
 
-        public AddUpdateView()
+        public AddView()
         {
             InitializeComponent();
         }
